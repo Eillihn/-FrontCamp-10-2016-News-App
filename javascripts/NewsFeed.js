@@ -64,7 +64,7 @@ class NewsFeed {
 
             return `
                 <article class='article'>
-                    <a href='${article.url}' target="_blank">
+                    <a href='${article.url}' target="_blank" class="article__link">
                         <h1 class='article__headline'>${article.title}</h2>
                         <span class='article__info'>${date}${!!article.author ? ' | ' + article.author : ''}</span>
                         <img src='${article.urlToImage}' class='article__img'/>
@@ -73,7 +73,7 @@ class NewsFeed {
                 </article>`;
         });
 
-        return html.join();
+        return html.join('');
     }
 
     init() {

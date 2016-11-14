@@ -1,0 +1,31 @@
+.news {
+    font-size: 100px;
+}
+
+.article {
+    margin: 48px 0;
+}
+
+.article__img {
+    margin: 32px auto;
+    max-height: 320px;
+    display: block;
+}
+
+.article__desc {
+    text-decoration: none;
+    color: #333;
+}
+
+.article__info {
+    text-decoration: none;
+    color: #999;
+}
+
+.article__headline {
+    margin: 16px 0 8px;
+}
+
+.article__headline:hover {
+    text-decoration: underline;
+}

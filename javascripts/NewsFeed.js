@@ -7,6 +7,7 @@ const DATA_OPTIONS = {
 
 const SOURCES_URL = 'https://newsapi.org/v1/sources?language=en';
 const ARTICLES_URL = 'https://newsapi.org/v1/articles';
+const API_KEY = '11296ec32b434bdbb5ddfe20030f1c13';
 
 class NewsFeed {
 
@@ -34,15 +35,14 @@ class NewsFeed {
     }
 
     attachEvents() {
-        let self = this;
         this.sourceEl.addEventListener('change', (e) => {
-            self.source = e.target.value;
-            self.update();
+            this.source = e.target.value;
+            this.update();
         });
     }
 
     update(source = this.source) {
-        fetch(`${ARTICLES_URL}?source=${source}&apiKey=11296ec32b434bdbb5ddfe20030f1c13`)
+        fetch(`${ARTICLES_URL}?source=${source}&apiKey=${API_KEY}`)
             .then((response) => {
                 return response.json();
             })

@@ -1,6 +1,6 @@
 # FrontCamp 10.2016. News Application #
-Application that displays news. Powered by NewsAPI.org - https://newsapi.org.
-Is part of FrontCamp Mentoring Program (FrontCamp10.2016) - is a comprehensive training, where more experienced colleagues (mentors/trainers) are sharing their knowledge and skills with young professionals (mentees) helping them to speed up their professional skills and reach next level.
+Application that displays news. Powered by NewsAPI.org - https://newsapi.org;
+is part of FrontCamp Mentoring Program (FrontCamp10.2016) - is a comprehensive training, where more experienced colleagues (mentors/trainers) are sharing their knowledge and skills with young professionals (mentees) helping them to speed up their professional skills and reach next level.
 
 ## Getting Started ##
 

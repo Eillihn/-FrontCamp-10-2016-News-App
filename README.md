@@ -10,7 +10,7 @@ This is part of FrontCamp Mentoring Program (FrontCamp10.2016) - is a comprehens
 2. Install git from https://git-scm.com/
 
 ### Installing ###
-Install dependicies:
+Install dependencies:
 > npm install
 
 ### Deployment ###

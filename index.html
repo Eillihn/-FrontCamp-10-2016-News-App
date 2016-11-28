@@ -4,15 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>[FrontCamp]Introduction to ECMAScript 2015 v2 by Eillihn</title>
-    <link rel="stylesheet" href="styles/news-feed.css">
+    <link rel="stylesheet" href="styles/common.css">
 </head>
 <body>
 <div class="container news-feed">
     <header class="header">
         <div>Powered by: <a href="https://newsapi.org/" target="_blank">NewsAPI.org</a></div>
         <h1 class="news">News</h1>
-        <label>Choose source:</label>
-        <select class="sources"></select>
+        <div class="show-news-wrapper">
+            <button class="btn btn--show-news">Show news</button>
+        </div>
+        <div class="choose-source-wrrapper hidden">
+            <label>Choose source:</label>
+            <select class="sources"></select>
+        </div>
     </header>
     <section class="articles section"></section>
     <footer class="footer">
@@ -27,6 +32,6 @@
         </p>
     </footer>
 </div>
-<script src="bundle.js"></script>
+<script src="dist/bundle.js"></script>
 </body>
 </html>

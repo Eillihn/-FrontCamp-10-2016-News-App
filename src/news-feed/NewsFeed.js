@@ -1,3 +1,5 @@
+import './news-feed.less';
+
 const DATA_OPTIONS = {
     weekday: 'long',
     year: 'numeric',
@@ -16,6 +18,7 @@ class NewsFeed {
             EL_CLASSNAME: 'news-feed',
             ARTICLES_CLASSNAME: 'articles',
             SOURCES_CLASSNAME: 'sources',
+            SOURCES_WRAPPER_CLASSNAME: 'choose-source-wrrapper',
             INITIAL_SOURCE: 'bbc-news'
         };
         this.options = Object.assign({}, defaults, options);
@@ -32,6 +35,7 @@ class NewsFeed {
         this.el = document.getElementsByClassName(this.options.EL_CLASSNAME)[0];
         this.articlesEl = this.el.getElementsByClassName(this.options.ARTICLES_CLASSNAME)[0];
         this.sourceEl = this.el.getElementsByClassName(this.options.SOURCES_CLASSNAME)[0];
+        this.sourceWrapper = this.el.getElementsByClassName(this.options.SOURCES_WRAPPER_CLASSNAME)[0];
     }
 
     attachEvents() {
@@ -90,15 +94,16 @@ class NewsFeed {
 
     createSources(data = {}) {
         this.sourceEl.innerHTML = this.createSourcesHtml(data.sources);
+        this.sourceWrapper.className = this.sourceWrapper.className.replace('hidden', '');
     }
 
     createSourcesHtml(sources = []) {
         return sources.map(source => {
             return `<option value='${source.id}'
                 ${source.id === this.options.INITIAL_SOURCE ? 'selected=\"true\"' : ''}>${source.name}</option>`;
-        }).join();
+        }).join('');
     }
 
 }
 
-module.exports = NewsFeed;
+export { NewsFeed };

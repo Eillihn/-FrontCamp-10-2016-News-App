@@ -8,10 +8,9 @@ This is part of FrontCamp Mentoring Program (FrontCamp10.2016) - is a comprehens
 ### Prerequisites ###
 1. Install node.js from https://nodejs.org/en/
 2. Install git from https://git-scm.com/
-	See options in git-option.png
 
 ### Installing ###
-Install dependicies:
+Install dependencies:
 > npm install
 
 ### Deployment ###

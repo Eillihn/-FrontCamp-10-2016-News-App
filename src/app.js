@@ -16,10 +16,10 @@ class App {
         }
 
         btn.onclick = () => {
-            require(['./news-feed/NewsFeed'], ({
-                NewsFeed
+            require(['./news-feed/news-feed.controller'], ({
+                NewsFeedController
             }) => {
-                let newsFeed = new NewsFeed()
+                let newsFeed = new NewsFeedController()
 
                 newsFeed.init();
 

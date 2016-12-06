@@ -12,7 +12,7 @@ module.exports = {
     watchOptions: {
         aggregateTime: 100
     },
-    devtool: NODE_ENV == 'DEV' ? 'cheap-inline-module-source-map': null,
+    devtool: NODE_ENV == 'DEV' ? 'source-map' : null,
     plugins: [
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({

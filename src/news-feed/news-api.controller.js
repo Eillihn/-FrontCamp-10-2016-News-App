@@ -1,5 +1,6 @@
 import './news-feed.less';
 
+import Const from './const';
 import SourcesModel from './sources.model';
 import SourcesView from './sources.view';
 import ArticlesModel from './articles.model';
@@ -13,7 +14,7 @@ class NewsFeedController {
         this.sourcesModel = new SourcesModel();
         this.sourcesView = new SourcesView();
 
-        this.articlesModel = new ArticlesModel();
+        this.articlesModel = new ArticlesModel(Const.NEWS_API_ARTICLES_SOURCE);
         this.articlesView = new ArticlesView();
 
         this.eventManager = EventManager.getInstance();
@@ -23,6 +24,7 @@ class NewsFeedController {
                 this.articlesView.render(this.articlesModel.articles);
             });
         });
+        this.init();
     }
 
     init() {

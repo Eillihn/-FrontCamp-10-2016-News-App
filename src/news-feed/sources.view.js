@@ -6,7 +6,7 @@ export default class SourcesView {
         const defaults = {
             CONTAINER_EL_CLASSNAME: 'news-feed',
             SOURCES_CLASSNAME: 'sources',
-            SOURCES_WRAPPER_CLASSNAME: 'choose-source-wrrapper'
+            SOURCES_WRAPPER_CLASSNAME: 'choose-source-wrapper'
         };
         this.options = Object.assign({}, defaults, options);
         this.eventManager = EventManager.getInstance();

@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    div.section
+        br
+        br
+        h3 Create Article
+        br
+        form.form--create-article
+            div.form-group
+                label(for='title') Title
+                input(type='text', name='title', id='title')
+
+            div.form-group
+                label(for='description') Description
+                textarea(name='description', id='description')
+
+            div.form-group
+                label(for='author') Author
+                input(type='text', name='author', id='author')
+
+            div.form-group
+                label(for='url') Url
+                input(type='text', name='url', id='url')
+
+            div.form-group
+                label(for='urlToImage') Url To Image
+                input(type='text', name='urlToImage', id='urlToImage')
+
+            div.form-group
+                button.btn.btn--save-articles(type='submit') Save
+        br
+        table.table.table--delete-articles
+            tr
+                th Title
+                th
+            for article in articles
+                tr
+                    td=article.title
+                    td
+                        a.btn.btn--danger.btn--delete-article(href='/article/delete', data-title=article.title) Delete

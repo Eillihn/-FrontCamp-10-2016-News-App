@@ -1,0 +1,34 @@
+doctype html
+html
+    head
+        title [FrontCamp]Introduction to ECMAScript 2015 v2 by Eillihn
+        block head
+    body
+    nav.nav-bar
+        .container
+            ul.nav
+                li.nav-item
+                    a.nav-link(href= '/') News
+                li.nav-item
+                    a.nav-link(href= '/admin') Admin
+    .container.news-feed
+        header.header
+            div
+                | Powered by:
+                a(href='https://newsapi.org/', target='_blank')=' NewsAPI.org'
+            h1.logo News
+            block actions
+        block content
+        footer.footer
+            p
+                a(href='https://github.com/Eillihn/-FrontCamp-Introduction-to-ECMAScript-2015-v2')
+                    | View the Project on
+                    | GitHub
+                br
+                |             This project is maintained by
+                a(href='https://github.com/Eillihn')=' Eillihn'
+                br
+                small
+                    | Hosted on GitHub Pages — Theme by
+                    a(href='https://github.com/orderedlist')=' orderedlist'
+    script(src='/bundle.js')

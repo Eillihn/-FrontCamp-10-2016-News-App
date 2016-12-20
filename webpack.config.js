@@ -4,8 +4,8 @@ const webpack = require('webpack');
 module.exports = {
     entry: ['whatwg-fetch', 'babel-polyfill', './src/app'],
     output: {
-        path: __dirname + '/dist',
-        publicPath: '/dist/',
+        path: __dirname + '/public',
+        publicPath: '/',
         filename: 'bundle.js'
     },
     watch: NODE_ENV == 'DEV',
@@ -28,7 +28,7 @@ module.exports = {
         moduleTemplates: ['*-loader', '*'],
         extensions: ['', '.js'],
         alias: {
-            'custom-json': __dirname + '/custom-json-loader'
+            'custom-json': __dirname + '/tasks/custom-json-loader'
         }
     },
     module: {

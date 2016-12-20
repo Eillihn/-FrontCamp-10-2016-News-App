@@ -1,10 +1,10 @@
-const ARTICLES_URL = 'https://newsapi.org/v1/articles';
-const API_KEY = '11296ec32b434bdbb5ddfe20030f1c13';
+import Const from './const';
 
 export default class ArticlesModel {
 
-    constructor() {
+    constructor(articlesSource) {
         this._articles = [];
+        this.articlesSource = articlesSource;
     }
 
     get articles() {
@@ -16,8 +16,10 @@ export default class ArticlesModel {
     }
 
     load(source) {
+        let self = this;
+
         return new Promise((res, rej) => {
-            fetch(`${ARTICLES_URL}?source=${source}&apiKey=${API_KEY}`)
+            fetch(self.getArticlesUrl())
                 .then((response) => {
                     if (response.ok) {
                         return response.json();
@@ -31,5 +33,10 @@ export default class ArticlesModel {
                 })
                 .catch((error) => console.log('Cannot get articles from server. ', error));
         });
+    }
+
+    getArticlesUrl(source) {
+        return this.articlesSource === Const.NEWS_API_ARTICLES_SOURCE ?
+            `${Const.NEWS_API_ARTICLES_URL}?source=${source}&apiKey=${API_KEY}` : Const.MONGO_ARTICLES_URL;
     }
 }

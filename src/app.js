@@ -1,3 +1,4 @@
+import './app.less';
 import testCustomJsonLoader from './test.json';
 
 class App {
@@ -8,24 +9,28 @@ class App {
     }
 
     static init() {
-        let btnArray = document.getElementsByClassName('btn--show-news'),
-            btn = btnArray.length ? btnArray[0] : '';
+        let btnSNArray = document.getElementsByClassName('btn--show-news'),
+            btnShowNews = btnSNArray.length ? btnSNArray[0] : '',
+            btnSAArray = document.getElementsByClassName('btn--save-articles'),
+            btnSaveArticles = btnSAArray.length ? btnSAArray[0] : '';
 
-        if (!btn) {
-            return;
+        if (!!btnShowNews) {
+            btnShowNews.onclick = () => {
+                require(['./news-feed/news-mongo.controller'], ({
+                    NewsFeedController
+                }) => {
+                    let newsFeed = new NewsFeedController()
+                });
+            };
         }
 
-        btn.onclick = () => {
-            require(['./news-feed/news-feed.controller'], ({
-                NewsFeedController
+        if (!!btnSaveArticles) {
+            require(['./admin/admin.controller'], ({
+                AdminController
             }) => {
-                let newsFeed = new NewsFeedController()
-
-                newsFeed.init();
-
-                btn.className += ' hidden';
+                let admin = new AdminController()
             });
-        };
+        }
     }
 
     static test() {

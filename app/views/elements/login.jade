@@ -1,0 +1,16 @@
+if user
+    div.logged-user
+        h1.title='Hello, ' + user.username + ' !'
+        div.text-right
+            a.link(href='/logout') Log Out
+else
+    form.form.form--login(action='/login', method='POST')
+        div.form__group
+            input(type='text', name='username', id='username', placeholder='Username')
+
+        div.form__group
+            input(type='password', name='password', id='password', placeholder='Password')
+
+        div.form__group
+            button.btn.btn--login(type='submit') Login
+            a.link.link--sign-up(href='/signup') Sign Up

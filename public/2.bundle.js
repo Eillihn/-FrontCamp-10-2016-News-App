@@ -162,7 +162,9 @@ webpackJsonp([2],{
 	                            'Accept': 'application/json',
 	                            'Content-Type': 'application/json'
 	                        },
-	                        body: JSON.stringify({ title: title })
+	                        body: JSON.stringify({
+	                            title: title
+	                        })
 	                    }).then(function (response) {
 	                        window.location.reload();
 	                        return response.json();

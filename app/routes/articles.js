@@ -3,9 +3,13 @@ let router = express.Router();
 let Article = require('../models/article');
 
 router.route('/articles').get((req, res) => {
-    Article.find({}).sort({publishedAt: -1}).exec(function (err, articles) {
+    Article.find({}).sort({
+        publishedAt: -1
+    }).exec((err, articles) => {
         if (!err) {
-            return res.json({articles: articles});
+            return res.json({
+                articles: articles
+            });
         } else {
             res.statusCode = 500;
 
@@ -43,7 +47,7 @@ router.route('/article/create').post((req, res) => {
 router.route('/article/delete').delete((req, res) => {
     Article.findOneAndRemove({
         title: req.body.title
-    }, function(err) {
+    }, (err) => {
         if (!err) {
             return res.json({
                 msg: `Article - ${req.body.title} - was deleted.`

@@ -1,6 +1,0 @@
-{
-  "port": 3000,
-  "mongoose": {
-    "uri": "mongodb://admin:admin@ds139288.mlab.com:39288/news-feed"
-  }
-}

@@ -2,10 +2,15 @@ let express = require('express');
 let router = express.Router();
 let Article = require('../models/article');
 
-router.get('/admin', function(req, res, next) {
-    Article.find({}).sort({publishedAt: -1}).exec(function (err, articles) {
+router.get('/admin', (req, res, next) => {
+    Article.find({}).sort({
+        publishedAt: -1
+    }).exec((err, articles) => {
         if (!err) {
-            return res.render('admin', {articles: articles});
+            return res.render('admin', {
+                articles: articles,
+                user: req.user
+            });
         } else {
             res.statusCode = 500;
 

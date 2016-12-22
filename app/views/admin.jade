@@ -1,5 +1,8 @@
 extends layout
 
+block actions
+    include elements/login
+
 block content
     div.section
         br
@@ -7,27 +10,27 @@ block content
         h3 Create Article
         br
         form.form--create-article
-            div.form-group
+            div.form__group
                 label(for='title') Title
                 input(type='text', name='title', id='title')
 
-            div.form-group
+            div.form__group
                 label(for='description') Description
                 textarea(name='description', id='description')
 
-            div.form-group
+            div.form__group
                 label(for='author') Author
                 input(type='text', name='author', id='author')
 
-            div.form-group
+            div.form__group
                 label(for='url') Url
                 input(type='text', name='url', id='url')
 
-            div.form-group
+            div.form__group
                 label(for='urlToImage') Url To Image
                 input(type='text', name='urlToImage', id='urlToImage')
 
-            div.form-group
+            div.form__group
                 button.btn.btn--save-articles(type='submit') Save
         br
         table.table.table--delete-articles

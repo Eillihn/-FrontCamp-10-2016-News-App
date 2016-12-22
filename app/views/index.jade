@@ -6,5 +6,10 @@ block actions
     .choose-source-wrapper.hidden
         label Choose source:
         select.sources
+    include elements/login
+
 block content
     section.articles.section
+        if message.length
+            div.errors-block
+                h1 #{message}

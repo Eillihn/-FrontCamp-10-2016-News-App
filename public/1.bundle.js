@@ -103,7 +103,7 @@ webpackJsonp([1],{
 
 
 	// module
-	exports.push([module.id, ".article {\n  margin: 48px 0;\n}\n.article__link {\n  display: inline-block;\n}\n.article__img {\n  margin: 32px auto;\n  max-height: 320px;\n  max-width: 500px;\n  display: block;\n  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);\n}\n.article__desc {\n  text-decoration: none;\n  color: #333;\n}\n.article__info {\n  text-decoration: none;\n  color: #999;\n}\n.article__headline {\n  margin: 16px 0 8px;\n  font-size: 32px;\n  color: #000;\n}\n.article__headline:hover {\n  text-decoration: underline;\n}\n@media only screen and (max-width: 967px) {\n  .article {\n    margin: 0 0 32px;\n  }\n  .article__img {\n    max-width: 100%;\n  }\n}\n", ""]);
+	exports.push([module.id, ".article {\n  margin: 48px 0;\n}\n.article__link {\n  display: inline-block;\n}\n.article__link:hover {\n  text-decoration: none;\n}\n.article__img {\n  display: block;\n  max-width: 500px;\n  max-height: 320px;\n  margin: 32px auto;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n.article__desc {\n  text-decoration: none;\n  color: #333;\n}\n.article__info {\n  text-decoration: none;\n  color: #999;\n}\n.article__headline {\n  font-size: 32px;\n  margin: 16px 0 8px;\n  color: #000;\n}\n.article__headline:hover {\n  text-decoration: underline;\n}\n@media only screen and (max-width: 967px) {\n  .article {\n    margin: 0 0 32px;\n  }\n  .article__img {\n    max-width: 100%;\n  }\n}\n", ""]);
 
 	// exports
 

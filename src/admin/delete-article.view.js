@@ -17,9 +17,9 @@ export default class DeleteArticleView {
 
     init() {
         this.deleteElParent.addEventListener('click', (e) => {
-        	if(e.target && e.target.className.indexOf(this.options.BTN_DELETE_ARTICLE_CLASSNAME) > -1) {
-        	    e.preventDefault();
-        	    let title = e.target.dataset['title'];
+            if (e.target && e.target.className.indexOf(this.options.BTN_DELETE_ARTICLE_CLASSNAME) > -1) {
+                e.preventDefault();
+                let title = e.target.dataset['title'];
 
                 fetch('/api/article/delete', {
                         method: 'DELETE',
@@ -27,14 +27,16 @@ export default class DeleteArticleView {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({title})
+                        body: JSON.stringify({
+                            title
+                        })
                     })
                     .then((response) => {
                         window.location.reload();
                         return response.json();
                     })
                     .catch((error) => console.log('Cannot delete article on server. ', error));
-        	}
+            }
         });
     }
 }

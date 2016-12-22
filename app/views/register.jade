@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    div.section.section--signup
+        br
+        br
+        h3 Registration Form
+        br
+        form.form.form--signup(action='/signup', method='POST')
+            div.form__group
+                input(type='text', name='username', id='username', placeholder='Username')
+
+            div.form__group
+                input(type='password', name='password', id='password', placeholder='Password')
+
+            div.form__group
+                button.btn.btn--signup(type='submit') Register
+
+        if message.length
+            div.errors-block
+                h1 #{message}

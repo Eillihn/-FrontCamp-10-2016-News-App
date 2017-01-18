@@ -1,1 +1,1 @@
-web: node ./app/bin/www
+web: babel-node ./app/bin/www

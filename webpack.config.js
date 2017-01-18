@@ -1,45 +1,36 @@
-const NODE_ENV = process.env.NODE_ENV || 'DEV';
+const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: ['whatwg-fetch', 'babel-polyfill', './src/app'],
+    entry: ['whatwg-fetch', 'babel-polyfill', './index'],
     output: {
         path: __dirname + '/public',
-        publicPath: '/',
         filename: 'bundle.js'
     },
-    watch: NODE_ENV == 'DEV',
-    watchOptions: {
-        aggregateTime: 100
-    },
-    devtool: NODE_ENV == 'DEV' ? 'source-map' : null,
+    watch: NODE_ENV == 'development',
+    devtool: NODE_ENV == 'development' ? 'source-map' : null,
     plugins: [
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify(NODE_ENV)
-        })
+            NODE_ENV: JSON.stringify(NODE_ENV),
+            BROWSER: JSON.stringify(true)
+        }),
+        new ExtractTextPlugin('bundle.css')
     ],
     resolve: {
         modulesDirectories: ['node_modules'],
-        extensions: ['', '.js']
-    },
-    resolveLoader: {
-        modulesDirectories: ['node_modules'],
-        moduleTemplates: ['*-loader', '*'],
-        extensions: ['', '.js'],
-        alias: {
-            'custom-json': __dirname + '/tasks/custom-json-loader'
-        }
+        extensions: ['', '.js', '.jsx']
     },
     module: {
         loaders: [{
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            loader: 'babel'
-        },{
+            test: /\.jsx?$/,
+            exclude: [/node_modules/, /public/],
+            loader: process.env.NODE_ENV == 'development' ? 'react-hot!babel' : 'babel'
+        }, {
             test: /\.less$/,
-            loader: 'style!css!less!autoprefixer?browsers=last 2 versions'
-        },{
+            loader: ExtractTextPlugin.extract("style", "css!autoprefixer!less")
+        }, {
             test: /\.json$/,
             loader: 'json!custom-json'
         }]
@@ -50,7 +41,7 @@ module.exports = {
     }
 };
 
-if (NODE_ENV == 'PROD') {
+if (NODE_ENV == 'production') {
     module.exports.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
             compress: {

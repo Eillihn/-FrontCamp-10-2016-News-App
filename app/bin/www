@@ -23,6 +23,8 @@ server.listen(process.env.PORT || config.get('port'));
 server.on('error', onError);
 server.on('listening', onListening);
 
+delete process.env.BROWSER;
+
 /**
  * Event listener for HTTP server "error" event.
  */

@@ -1,4 +1,4 @@
-import Const from './const';
+import Const from './Const';
 
 export default class ArticlesModel {
 

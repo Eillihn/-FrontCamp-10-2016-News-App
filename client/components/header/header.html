@@ -1,0 +1,11 @@
+<div>
+    <div class="header clear-float">
+        <div class="pull-left">
+            <logo/>
+        </div>
+        <div class="pull-right" ng-hide="$ctrl.hideLogin">
+            <login ng-hide="$ctrl.getUser().username"></login>
+            <logout ng-show="$ctrl.getUser().username"></logout>
+        </div>
+    </div>
+</div>

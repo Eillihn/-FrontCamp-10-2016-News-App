@@ -1,0 +1,12 @@
+<nav class="nav-bar">
+    <div class="container">
+        <ul class="nav">
+            <li class="nav-item">
+                <a ui-sref="home" ui-sref-active="active" class="nav-link">News</a>
+            </li>
+            <li class="nav-item" ng-show="$ctrl.getUser().username">
+                <a ui-sref="admin" ui-sref-active="active" class="nav-link">Admin</a>
+            </li>
+        </ul>
+    </div>
+</nav>

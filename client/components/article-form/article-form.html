@@ -1,0 +1,34 @@
+<div class="article-form">
+    <h3 class="article-form__headline">{{$ctrl.title}}</h3>
+    <form class="form article-form__form" name="articleForm">
+        <div class="form__group">
+            <label for="title">Title</label>
+            <span class="invalid" ng-show="articleForm.title.$error.required && articleForm.title.$touched">* Required field</span>
+            <span class="invalid" ng-show="articleForm.title.$error.minLength && articleForm.title.$touched">The minimum length of an article: 20 symbols</span>
+            <input type="text" id="title" name="title" ng-model="$ctrl.article.title" min-length="20" required/>
+        </div>
+        <div class="form__group">
+            <label for="description">Content</label>
+            <span class="invalid" ng-show="articleForm.description.$error.required && articleForm.description.$touched">* Required field</span>
+            <textarea id="description" name="description" ng-model="$ctrl.article.description" required></textarea>
+        </div>
+        <div class="form__group">
+            <label for="author">Author</label>
+            <input type="text" id="author" ng-model="$ctrl.article.author" />
+        </div>
+        <div class="form__group">
+            <label for="url">Url</label>
+            <input type="text" id="url" ng-model="$ctrl.article.url" />
+        </div>
+        <div class="form__group">
+            <label for="urlToImage">Url To Image</label>
+            <input type="text" id="urlToImage" ng-model="$ctrl.article.urlToImage" />
+        </div>
+        <div class="form__group">
+            <div class="message message--error" ng-show="$ctrl.error">{{$ctrl.error}}</div>
+            <div class="message message--success" ng-show="$ctrl.message">{{$ctrl.message}}</div>
+            <button type="button" class="btn btn--danger" ng-disabled="!articleForm.$valid" ng-click="$ctrl.save($ctrl.article)">Save</button>
+            <button type="button" class="btn btn--success" ng-click="$ctrl.navigate('admin', {}, {reload: true})">Back to Admin</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<form novalidate class="form form--login" name="form">
+    <div class="form__group">
+        <span class="invalid" ng-show="form.username.$error.required && form.username.$touched">* Required field</span>
+        <input type="text" placeholder="Username" name="username" ng-model="$ctrl.user.username" required/>
+    </div>
+    <div class="form__group">
+        <span class="invalid" ng-show="form.password.$error.required && form.password.$touched">* Required field</span>
+        <input type="password" placeholder="Password" name="password" ng-model="$ctrl.user.password" required/>
+    </div>
+    <div class="form__group">
+        <span class="invalid server-error" ng-show="$ctrl.error">{{$ctrl.error}}</span>
+        <button type="button" class="btn btn--login btn--warning" ng-disabled="!form.$valid" ng-click="$ctrl.login($ctrl.user, $ctrl)">Login</button>
+        <a ui-sref="signup" class="link link--sign-up">Sign Up</a>
+    </div>
+</form>

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: ['whatwg-fetch', 'babel-polyfill', './index'],
+    entry: ['whatwg-fetch', 'babel-polyfill', './client/app.js'],
     output: {
         path: __dirname + '/public',
         filename: 'bundle.js'
@@ -24,15 +24,18 @@ module.exports = {
     },
     module: {
         loaders: [{
-            test: /\.jsx?$/,
+            test: /\.js$/,
             exclude: [/node_modules/, /public/],
-            loader: process.env.NODE_ENV == 'development' ? 'react-hot!babel' : 'babel'
+            loaders: ['ng-annotate', 'babel']
         }, {
             test: /\.less$/,
             loader: ExtractTextPlugin.extract("style", "css!autoprefixer!less")
         }, {
             test: /\.json$/,
             loader: 'json!custom-json'
+        }, {
+            test: /\.html$/,
+            loader: 'raw'
         }]
     },
     devServer: {

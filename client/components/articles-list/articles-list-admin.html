@@ -1,0 +1,23 @@
+<div class="articles-list--admin">
+    <table class="table">
+        <tbody>
+            <tr ng-repeat="article in $ctrl.articles | orderBy : 'title' | limitTo : $ctrl.getLimit() : $ctrl.getSkipCount()">
+                <td>{{$index + $ctrl.getSkipCount() + 1}}</td>
+                <td class="title">{{article.title}}</td>
+                <td>
+                    <button class="btn btn--primary" ng-click="$ctrl.navigate('admin.editArticle', {id: article._id})">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn--danger" ng-click="$ctrl.navigate('admin.deleteArticle', {id: article._id})">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button type="button" class="btn" ng-click="$ctrl.prevBtnClick()" ng-disabled="$ctrl.getCurrentPage() === 0">Prev
+        </button>
+        <button type="button" class="btn" ng-click="$ctrl.nextBtnClick()" ng-disabled="!$ctrl.hasNextPage($ctrl.articles)">
+            Next
+        </button>
+    </div>
+</div>

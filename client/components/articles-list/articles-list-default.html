@@ -1,0 +1,14 @@
+<div>
+    <div class="article-list section">
+        <div ng-repeat="article in $ctrl.articles | orderBy : ['-publishedAt', 'title']">
+            <article class="article">
+                <a href="{{article.url}}" target="_blank" class="article__link">
+                    <h1 class="article__headline">{{article.title}}</h1>
+                    <span class="article__info">{{article.publishedAt | date}}{{!!article.author ? " | " + article.author : ""}}</span>
+                    <img ng-src="{{article.urlToImage}}" class="article__img" />
+                    <p class="article__desc">{{article.description}}</p>
+                </a>
+            </article>
+        </div>
+    </div>
+</div>

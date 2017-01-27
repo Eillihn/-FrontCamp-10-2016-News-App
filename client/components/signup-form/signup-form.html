@@ -1,0 +1,20 @@
+<div class="section--signup">
+    <br/>
+    <br/>
+    <h3 class="text-center">Registration Form</h3>
+    <br/>
+    <form novalidate class="form form--signup" name="form">
+        <div class="form__group">
+            <span class="invalid" ng-show="form.username.$error.required && form.username.$touched">* Required field</span>
+            <input type="text" placeholder="Username" name="username" ng-model="$ctrl.user.username" required/>
+        </div>
+        <div class="form__group">
+            <span class="invalid" ng-show="form.password.$error.required && form.password.$touched">* Required field</span>
+            <input type="password" placeholder="Password" name="password" ng-model="$ctrl.user.password" required/>
+        </div>
+        <div class="form__group">
+            <span class="invalid server-error" ng-show="$ctrl.error">{{$ctrl.error}}</span>
+            <button type="submit" class="btn btn--signup btn--warning" ng-disabled="!form.$valid" ng-click="$ctrl.signup($ctrl.user, $ctrl)">Register</button>
+        </div>
+    </form>
+</div>

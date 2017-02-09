@@ -1,6 +1,9 @@
-export default function($stateProvider, $urlRouterProvider, $locationProvider) {
+export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     'ngInject';
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
     $urlRouterProvider.otherwise('/');
 
     $stateProvider

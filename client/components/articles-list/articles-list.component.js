@@ -12,7 +12,7 @@ let articlesList = {
     controller,
     bindings: {
         articles: '<',
-        template: '&'
+        template: '@'
     }
 };
 

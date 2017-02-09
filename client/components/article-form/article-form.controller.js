@@ -1,12 +1,12 @@
-function RegisterController(articlesService, stateRouter) {
+function ArticleFormController(articlesService, stateRouter) {
     'ngInject';
     let $ctrl = this;
 
     $ctrl.navigate = stateRouter.navigate;
 
     $ctrl.save = (article) => {
-        articlesService.save(article, (user) => {
-            if (!!user) {
+        articlesService.save(article, (sArticle) => {
+            if (!!sArticle) {
                 $ctrl.message = 'Article was saved.';
                 $ctrl.error = null;
             } else {
@@ -17,4 +17,4 @@ function RegisterController(articlesService, stateRouter) {
     };
 }
 
-export default RegisterController;
+export default ArticleFormController;

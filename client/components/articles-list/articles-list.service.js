@@ -1,9 +1,11 @@
 function articlesListService($state) {
     'ngInject';
     let currentPage = 0;
+    let limit = 5;
 
     return {
         getLimit,
+        setLimit,
         getSkipCount,
         hasNextPage,
         toStartPage,
@@ -14,7 +16,11 @@ function articlesListService($state) {
     };
 
     function getLimit() {
-        return 5;
+        return limit;
+    }
+
+    function setLimit(newLimit) {
+        limit = newLimit;
     }
 
     function getCurrentPage() {
@@ -26,11 +32,11 @@ function articlesListService($state) {
     }
 
     function getSkipCount() {
-        return currentPage * getLimit();
+        return currentPage * limit;
     }
 
     function hasNextPage(articles) {
-        return articles.length - (currentPage + 1) * getLimit() > 0;
+        return articles.length - (currentPage + 1) * limit > 0;
     }
 
     function prevBtnClick() {

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: ['whatwg-fetch', 'babel-polyfill', './client/app.js'],
+    entry: ['babel-polyfill', './client/app.js'],
     output: {
         path: __dirname + '/public',
         filename: 'bundle.js'
@@ -13,14 +13,13 @@ module.exports = {
     plugins: [
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify(NODE_ENV),
-            BROWSER: JSON.stringify(true)
+            NODE_ENV: JSON.stringify(NODE_ENV)
         }),
         new ExtractTextPlugin('bundle.css')
     ],
     resolve: {
         modulesDirectories: ['node_modules'],
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js']
     },
     module: {
         loaders: [{
